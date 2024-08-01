@@ -16,19 +16,19 @@ print(num1, num2, num3)
 print("Hello \nWorld!")     # new line character
 print("Hello \tWorld!")     # tab character
 
-#   4-Using the special Parameters
+#   4-Using the "sep" Parameters
 fruit_1 = "apple"
 fruit_2 = "banana"
 fruit_3 = "cherry"
-print(f"{fruit_1}, {fruit_2}, {fruit_3}")   # seperated by comma
-print(f"{num1}-{num2}-{num3}")  # seperated by hyphen
+print(fruit_1, fruit_2, fruit_3, sep = ",")   # seperated by comma
+print(num1, num2, num3, sep = "-")  # seperated by hyphen
 
 #   5-Using the end parameter
-print("Hello","World!", end=" ")
-print(1,2, end="")
+print("Hello","World!", end=" \n")
+print(num1,num2, end="")
 
 #   6-Escape Characters
-print(f'He said, "He is okay."')
+print(f'\nHe said, "He is okay."')
 print("This is a backslash:\\")
 
 #   7-Combining Text & Numbers
