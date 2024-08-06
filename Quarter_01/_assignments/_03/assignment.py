@@ -1,4 +1,4 @@
-# this is assignmet 3 solution file
+# this is assignmet-3 solution file
 
 # 1. Simple Message
 message_1 = "Hello! I,m a variable."
@@ -38,7 +38,7 @@ person_2 = " \t\n   Jackson\t     Smith    \n"
 print(person_2)
 print(f'This is strip: {person_2.strip()}')
 print(f'This is rstrip: {person_2.rstrip()}')
-print(f'This is lstrip: {person_2.rstrip()}')
+print(f'This is lstrip: {person_2.lstrip()}')
 
 # 8. Variable Sum
 x = 5
