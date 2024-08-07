@@ -1,7 +1,7 @@
 import streamlit as st
 
 # Setting the title
-st.title("Interactive Simple Calculator")
+st.title("Simple Calculator")
 
 # Sidebar for user inputs
 st.sidebar.header("Calculator Inputs")
@@ -15,35 +15,36 @@ num2_input = st.sidebar.number_input("Please enter the second Number : ", value=
 # Select operation
 operation = st.sidebar.selectbox("Enter the operation (+, -, *, /) : ", ["+", "-", "*", "/"])
 
-# Perform calculation and display result
-try:
-    # Convert num1 to float for arithmetic operations
-    num1 = float(num1_input)
-    num2 = float(num2_input)
+# Add a button to trigger the calculation
+if st.sidebar.button("Calculate"):
+    try:
+        # Convert num1 to float for arithmetic operations
+        num1 = float(num1_input)
+        num2 = float(num2_input)
 
-    # Perform the selected operation
-    if operation == "+":
-        result = num1 + num2
-    elif operation == "-":
-        result = num1 - num2
-    elif operation == "*":
-        result = num1 * num2
-    elif operation == "/":
-        if num2 != 0:
-            result = num1 / num2
-        else:
-            result = "Error! Can't be divided by 0."
+        # Perform the selected operation
+        if operation == "+":
+            result = num1 + num2
+        elif operation == "-":
+            result = num1 - num2
+        elif operation == "*":
+            result = num1 * num2
+        elif operation == "/":
+            if num2 != 0:
+                result = num1 / num2
+            else:
+                result = "Error! Can't be divided by 0."
 
-    # Display the result
-    st.write(f"**Result:** {result}")
-except ValueError:
-    st.write("Please enter valid numbers for both inputs.")
+        # Display the result
+        st.write(f"**Result:** {result}")
+    except ValueError:
+        st.write("Please enter valid numbers for both inputs.")
 
 # Add a footer
 st.markdown("---")
-st.write("Created with Streamlit")
+st.write("Created with ❤️ using Streamlit")
 
-# Optional: Add some styling
+# Add some styling
 st.markdown(
     """
     <style>
