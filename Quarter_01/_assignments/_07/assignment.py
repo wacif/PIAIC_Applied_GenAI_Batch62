@@ -4,4 +4,4 @@
 user_name = input("Please enter your name.")
 
 def getting_numbers():
-    
+    print("Please enter ")
