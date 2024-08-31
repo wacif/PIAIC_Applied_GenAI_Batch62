@@ -15,3 +15,6 @@ To create a heading, add number signs (#) in front of a word or phrase. The numb
 
 Heading level 1
 ==================
+
+Heading level 2
+------------------
