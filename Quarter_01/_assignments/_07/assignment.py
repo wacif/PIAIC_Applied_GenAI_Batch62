@@ -13,3 +13,4 @@ number_list.append(second_num)
 number_list.append(third_num)
 # print(number_list)
 
+# print the other numbers
