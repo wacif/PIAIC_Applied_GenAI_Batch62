@@ -1,23 +1,18 @@
 # This file contains the solution of 7th assignment 
 # Python Programming Assignment: Number Exploration Tool
 
-user_name = input("Enter your name: ")
-
-first_num = input("Enter your first favorite number: ")
-second_num = input("Enter your second favorite number: ")
-third_num = input("Enter your third favorite number: ")
-
-# greete the user
-print(f"Hello, {user_name}! Let's explore your favorite numbers:")
-
-# create an empty list
-number_list = []
-
-# store the numberse in the list
-number_list.append(first_num)
-number_list.append(second_num)
-number_list.append(third_num)
-# print(number_list)
-
+# Ask for the user's name
+name = input("Enter your name: ")
+    
+# Get three favorite numbers from the user
+numbers = []
+for i in range(1, 4):
+    number = int(input(f"Enter your {i}
+                       {'st' if i == 1 else 'nd' if i == 2 else 'rd'} 
+                       favorite number: "))
+    numbers.append(number)
+    
+# Greet the user
+print(f"\nHello, {name}! Let's explore your favorite numbers:\n")
 
 
