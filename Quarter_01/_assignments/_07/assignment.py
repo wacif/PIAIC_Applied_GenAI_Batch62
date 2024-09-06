@@ -22,16 +22,20 @@ for num in numbers:
     else:
         even_odd_info.append((num, "odd"))
 
- # Display the even/odd info
-    for num, parity in even_odd_info:
-        print(f"The number {num} is {parity}.")
+# Display the even/odd info
+for num, parity in even_odd_info:
+    print(f"The number {num} is {parity}.")
 
 # Print the number and its square
-    print("\nHere are your numbers and their squares:")
-    for num in numbers:
-        print(f"The number {num} and its square: ({num}, {num**2})")
+print("\nHere are your numbers and their squares:")
+for num in numbers:
+    print(f"The number {num} and its square: ({num}, {num**2})")
 
-
+# Calculate the sum of the numbers
+total_sum = sum(numbers)
+print(f"\nAmazing! The sum of your favorite numbers is: {total_sum}")
+    
+# Check if the sum is a prime number
 def is_prime(n):
     if n <= 1:
         return False
@@ -40,12 +44,7 @@ def is_prime(n):
             return False
     return True
 
-# Calculate the sum of the numbers
-    total_sum = sum(numbers)
-    print(f"\nAmazing! The sum of your favorite numbers is: {total_sum}")
-    
-    # Check if the sum is a prime number
-    if is_prime(total_sum):
-        print(f"Wow, {total_sum} is a prime number!")
-    else:
-        print(f"{total_sum} is not a prime number, but it's still a great number!")
+if is_prime(total_sum):
+    print(f"Wow, {total_sum} is a prime number!")
+else:
+    print(f"{total_sum} is not a prime number, but it's still a great number!")
