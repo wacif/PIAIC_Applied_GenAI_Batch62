@@ -13,3 +13,11 @@ Hello! How**are**you?
 
 #   Italic 
 to italicize text, add astrick or underscore before and after the word or phrase. To italicize middle of a word for emphasis, add one astrick without spaces around the letters.
+
+The italisized *texts* 
+
+Second mehtod to italisized _the italic text_
+
+This text is really ***important***
+
+This is another ___text___
