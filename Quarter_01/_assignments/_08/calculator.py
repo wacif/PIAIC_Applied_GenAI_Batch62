@@ -46,6 +46,18 @@ def main():
                 print(f"Result : {add(a, b)}")
             elif choice == "2":
                 print(f"Result : {subtract(a, b)}")
+            elif choice == "3":
+                print(f"Result : {multiply(a, b)}")
+            elif choice == "4":
+                print(f"Result : {divide(a, b)}")
+        else:
+            print("Invalid input: Enter a valid operator.")
+
+        # ask the user if they want to perform another calculation
+        another_calculation = input("Do you want to perform another calculation? (yes / no) :").lower()
+        if another_calculation != "yes":
+            print("Exiting the calculator.")
+            break
 
 
 
