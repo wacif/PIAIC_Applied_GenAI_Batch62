@@ -1,0 +1,17 @@
+[project]
+name = "crewai-1"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Wasif Nawaz", email = "nwasi1930@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = []
+
+[project.scripts]
+crewai-1 = "crewai_1:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

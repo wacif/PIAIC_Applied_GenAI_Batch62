@@ -1,2 +1,9 @@
 # Quarter_02/_Projects
 # Quarter_02/Onsite_Sessions/_crewai/test_crew/.venv
+.env
+.venv
+__pycache__/
+lib/
+.DS_Store
+.chainlit
+__init__.py
