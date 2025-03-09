@@ -66,3 +66,7 @@ class CityFunFact(Flow):
 def kickoff():
     obj = CityFunFact()
     obj.kickoff()
+
+def plot():
+    obj = CityFunFact()
+    obj.plot()

@@ -16,6 +16,7 @@ dependencies = [
 test-1 = "test_1:main"
 test_flow = "test_1.main:kickoff"
 llm_call = "test_1.main_1:kickoff"
+plot = "test_1.main_1:plot"
 
 
 [build-system]
