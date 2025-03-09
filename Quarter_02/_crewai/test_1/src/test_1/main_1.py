@@ -28,14 +28,14 @@ class CityFunFact(Flow):
         return city_name
     
     @listen(city_name)
-    def fun_fact(self):
+    def fun_fact(self, city_name):
         response = completion(
             model="gemini/gemini-2.0-flash",
             api_key=api_key,
             messages=[
                 {
                     "role": "user",
-                    "content": f"Tell me a fun fact about {self.city_name}."
+                    "content": f"Tell me a fun fact about {city_name}."
                 }
             ]
         )
@@ -45,14 +45,14 @@ class CityFunFact(Flow):
         return fun_fact
     
     @listen(fun_fact)
-    def urdu_lang(self):
+    def urdu_lang(self, fun_fact):
         response = completion(
             model="gemini/gemini-2.0-flash",
             api_key=api_key,
             messages=[
                 {
                     "role": "user",
-                    "content": f"Translate this to Urdu: {self.fun_fact}."
+                    "content": f"Translate this to Urdu: {fun_fact}."
                 }
             ]
         )
@@ -65,4 +65,4 @@ class CityFunFact(Flow):
 
 def kickoff():
     obj = CityFunFact()
-    obj.city_name()
+    obj.kickoff()
