@@ -1,0 +1,21 @@
+[project]
+name = "test-1"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Wasif Nawaz", email = "nwasi1930@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "crewai>=0.102.0",
+]
+
+[project.scripts]
+test-1 = "test_1:main"
+test_flow = "test_1.main:kickoff"
+
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
