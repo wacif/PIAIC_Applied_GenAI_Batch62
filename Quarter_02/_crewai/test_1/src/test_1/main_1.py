@@ -17,7 +17,7 @@ class CityFunFact(Flow):
             messages=[
                 {
                     "role": "user",
-                    "content": "Give me a city name."
+                    "content": "Give me a random city name."
                 }
             ]
 
@@ -45,21 +45,21 @@ class CityFunFact(Flow):
         return fun_fact
     
     @listen(fun_fact)
-    def urdu_lang(self, fun_fact):
+    def shortner(self, fun_fact):
         response = completion(
             model="gemini/gemini-2.0-flash",
             api_key=api_key,
             messages=[
                 {
                     "role": "user",
-                    "content": f"Translate this to Urdu: {fun_fact}."
+                    "content": f"Make this fun fact one liner: {fun_fact}."
                 }
             ]
         )
-        urdu_lang = response.choices[0].message.content
-        print(f"Urdu translation: {urdu_lang}")
+        one_line = response.choices[0].message.content
+        print(f"The one liner of the fun fact is: {one_line}")
         time.sleep(4)
-        return urdu_lang
+        return one_line
 
     
 
