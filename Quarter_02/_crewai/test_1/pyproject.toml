@@ -9,11 +9,13 @@ authors = [
 requires-python = ">=3.12"
 dependencies = [
     "crewai>=0.102.0",
+    "litellm>=1.60.2",
 ]
 
 [project.scripts]
 test-1 = "test_1:main"
 test_flow = "test_1.main:kickoff"
+llm_call = "test_1.main_1:kickoff"
 
 
 [build-system]
