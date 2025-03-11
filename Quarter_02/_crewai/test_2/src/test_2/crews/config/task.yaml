@@ -1,1 +1,9 @@
 analyze_topic:
+  description: > 
+    "You are analyzing the topic of the task. You will provide a detailed analysis of the task and its implications. You will also provide a list of potential solutions to the task. You will also provide a list of potential solutions to the task. You will also provide a list of potential solutions to the task. You will also provide a list of potential solutions to the task."
+
+  expected_output: > 
+    "Detail of the topic"
+    
+
+  agent: principle
