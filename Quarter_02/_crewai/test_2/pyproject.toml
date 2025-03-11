@@ -7,10 +7,14 @@ authors = [
     { name = "Wasif Nawaz", email = "nwasi1930@gmail.com" }
 ]
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "crewai>=0.105.0",
+    "crewai-tools>=0.37.0",
+]
 
 [project.scripts]
 test-2 = "test_2:main"
+flow = "test_2.main:kickoff"
 
 [build-system]
 requires = ["hatchling"]
