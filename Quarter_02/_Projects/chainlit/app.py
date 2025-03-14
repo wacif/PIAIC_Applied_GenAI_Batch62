@@ -10,24 +10,24 @@ print(f"api_key: {api_key}")
 async def set_starters():
     return [
         cl.Starter(
-            label="Morning routine ideation",
-            message="Can you help me create a personalized morning routine that would help increase my productivity throughout the day? Start by asking me about my current habits and what activities energize me in the morning.",
+            label="Classical Mechanics",
+            message="The study of motion and forces in macroscopic systems, excluding very small or very fast objects.  Think of Newton's laws governing the trajectory of a ball thrown in the air",
             # icon="/public/idea.svg",
             ),
 
         cl.Starter(
-            label="Explain superconductors",
-            message="Explain superconductors like I'm five years old.",
+            label="Exploring the Laws of Nature",
+            message="Physics seeks to uncover the fundamental laws that govern the universe and explain the behavior of everything from atoms to stars. This ongoing quest for knowledge continues to expand our understanding of the cosmos. Example:  The theory of relativity revolutionized our understanding of space, time, and gravity.",
             # icon="/public/learn.svg",
             ),
         cl.Starter(
-            label="Python script for daily email reports",
-            message="Write a script to automate sending daily email reports in Python, and walk me through how I would set it up.",
+            label="Understanding Motion, Energy, and Matter",
+            message="Physics investigates the principles governing motion, energy transformations, and the properties of matter. It encompasses diverse fields like mechanics, thermodynamics, and electromagnetism. Example: Physics describes how a car accelerates (Newton's laws) and how electricity powers our homes (electromagnetism).",
             # icon="/public/terminal.svg",
             ),
         cl.Starter(
-            label="Text inviting friend to wedding",
-            message="Write a text asking a friend to be my plus-one at a wedding next month. I want to keep it super short and casual, and offer an out.",
+            label="The Study of the Universe",
+            message="Physics explores the fundamental constituents of the universe and how they interact, from the smallest subatomic particles to the largest galaxies.  It uses observation, experimentation, and mathematical models to understand natural phenomena. Example:  Physics explains why apples fall from trees (gravity) and how stars shine (nuclear fusion).",
             # icon="/public/write.svg",
             )
         ]
@@ -59,13 +59,16 @@ async def main(message: cl.Message):
     }
     ]
 
-    print(f"Prompt: {prompt}")
+    # print(f"Prompt: {prompt}")
+    history = []
+    history.append(prompt)
 
     try:
         response = completion(
             model="gemini/gemini-1.5-flash",
             api_key=api_key,
-            messages=prompt,
+            messages=history,
+            temperature=0.7,
             # stream=True,
         )   
 
@@ -76,6 +79,8 @@ async def main(message: cl.Message):
         #         await msg.stream_token(token)
 
         msg.content = response.choices[0].message.content
+        # Append the message to the chat history
+        history.append({"role": "assistant", "content": msg.content})
         await msg.update()
 
     except Exception as e:
