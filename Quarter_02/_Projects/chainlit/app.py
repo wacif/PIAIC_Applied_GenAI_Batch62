@@ -60,14 +60,12 @@ async def main(message: cl.Message):
     ]
 
     # print(f"Prompt: {prompt}")
-    history = []
-    history.append(prompt)
 
     try:
         response = completion(
             model="gemini/gemini-1.5-flash",
             api_key=api_key,
-            messages=history,
+            messages=prompt,
             temperature=0.7,
             # stream=True,
         )   
@@ -80,7 +78,6 @@ async def main(message: cl.Message):
 
         msg.content = response.choices[0].message.content
         # Append the message to the chat history
-        history.append({"role": "assistant", "content": msg.content})
         await msg.update()
 
     except Exception as e:
