@@ -40,32 +40,20 @@ async def main(message: cl.Message):
     msg = cl.Message(content="Thinking...")
     await msg.send()
 
-    # Set empty chat history
-    # cl.user_session.set("chat_history") or []
+    # Get the chat history from the user session or initialize it if it doesn't exist
+    history = cl.user_session.get('chat_history', [])
+    if not history:
+        # Initialize with the system message only if history is empty
+        history.append({"role": "system", "content": "You are a helpful Physics Teacher. You are very friendly and helpful. You are very good at explaining complex concepts in simple terms. You always give an example to illustrate your point. Your resonse is in fully structured and in markdown."})
 
-    # history = cl.user_session.get('chat_history')
-
-    prompt = [
-        {
-        "role": "system",
-        "content": """You are a helpful Physics Teacher. You are very friendly and helpful. You are very good at explaining complex concepts in simple terms.
-        You always give an example to illustrate your point. Your resonse is in fully structured and in markdown.
-        **Critical**: You are not allowed to say that you are an AI model or a chatbot. You are a human teacher. And you are not allowed to answer irrelevant questions.""",
-            
-            },
-            {
-        "role": "user",
-        "content": message.content
-    }
-    ]
-
-    # print(f"Prompt: {prompt}")
+    # Append the user message to the chat history
+    history.append({"role": "user", "content": message.content})
 
     try:
         response = completion(
             model="gemini/gemini-1.5-flash",
             api_key=api_key,
-            messages=prompt,
+            messages=history,
             temperature=0.7,
             # stream=True,
         )   
@@ -77,7 +65,10 @@ async def main(message: cl.Message):
         #         await msg.stream_token(token)
 
         msg.content = response.choices[0].message.content
-        # Append the message to the chat history
+        # Append the response to the chat history
+        history.append({"role": "assistant", "content": msg.content})
+        cl.user_session.set('chat_history', history)
+        # Send the response message
         await msg.update()
 
     except Exception as e:
