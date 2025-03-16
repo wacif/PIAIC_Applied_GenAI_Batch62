@@ -6,6 +6,22 @@ from litellm import completion
 api_key = os.getenv("GEMINI_API_KEY")
 print(f"api_key: {api_key}")
 
+@cl.set_chat_profiles
+async def chat_profile():
+    return [
+        cl.ChatProfile(
+            name="GPT-3.5",
+            markdown_description="The underlying LLM model is **GPT-3.5**.",
+            icon="https://picsum.photos/200",
+        ),
+        cl.ChatProfile(
+            name="GPT-4",
+            markdown_description="The underlying LLM model is **GPT-4**.",
+            icon="https://picsum.photos/250",
+        ),
+    ]
+
+
 @cl.set_starters
 async def set_starters():
     return [
@@ -32,6 +48,8 @@ async def set_starters():
             )
         ]
 # ...
+
+# Define the main function to handle incoming messages
 
 @cl.on_message
 async def main(message: cl.Message):
@@ -77,7 +95,3 @@ async def main(message: cl.Message):
         await msg.update()
 
 
-# litellm._turn_on_debug()
-@cl.on_chat_start
-def on_chat_start():
-    print("A new chat session has started!")
